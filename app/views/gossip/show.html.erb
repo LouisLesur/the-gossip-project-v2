@@ -1,0 +1,33 @@
+
+<h1> <%= @current_gossip.title %> </h1>
+<p> <%= @current_gossip.content %> </p>
+<p><%= @current_gossip.user.first_name %></p>
+
+<%= @likes.count %>
+  <% if @likes.map{|like| like.user_id == current_user.id ? like : nil}.compact == [] %>
+    <%= link_to "", gossip_like_index_path(@gossip.id), class:"far fa-heart fa-2x mx-1 my-1", style:"color:#ff565d;", data:{method:"POST"} %>
+  <%else%>
+    <%= link_to "", gossip_like_path(@gossip.id, current_user.id), class:"fas fa-heart fa-2x mx-1 my-1", style:"color:#ff565d;", data:{method:"DELETE"} %>
+  <%end%>
+
+<% if @current_gossip.user_id == current_user.id %>
+<%= link_to"modifier le potin", edit_gossip_path(@current_gossip.id) , :class => "btn btn-primary"%>
+<%end%>
+
+<% if session[:user_id] != nil %>
+<%= link_to"commenter le potin", new_gossip_comment_path(@current_gossip.id), :class => "btn btn-primary"%>
+<%end%>
+
+<% @all_comments.each do |comment| %>
+  <% if comment.gossip_id == @current_gossip.id %>
+    <div>
+      <p>
+      <%= comment.content %> <br/>
+      <%= comment.user.first_name%>
+      <% if comment.user_id == current_user.id %>
+        <%= link_to"editer le commentaire", edit_gossip_comment_path(gossip_id: comment.gossip_id, id: comment.id), :class => "btn btn-primary"%>
+      <%end%>
+      </p>
+    </div>
+  <%end%>
+<%end%>

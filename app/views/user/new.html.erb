@@ -1,0 +1,19 @@
+<h4>Veulliez remplir le formulaire d'inscription (tout les champs sont obligatoire)</h4>
+
+<form action="/user" method="post">
+  <!-- trucs de base -->
+  Prénom :
+  <input type="string" name="first_name" value="louis">
+  Nom :
+  <input type="string" name="last_name" value="lesur">
+  Email :
+  <input type="string" name="email" value="louis.lesur@protonmail.com">
+  <!-- mot de passe -->
+  Mot de passe :
+  <input type="string" name="password_digest" value="mabite">
+  Confirmez le mot de passe :
+  <input type="string" name="password_digest" value="mabite">
+  <!-- bouton -->
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="submit" value="clique pd">
+</form>

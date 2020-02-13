@@ -1,0 +1,10 @@
+<h1> <%= @current_gossip.title %> </h1>
+<p> <%= @current_gossip.content %> </p>
+<p><%= @current_gossip.user.first_name %></p>
+
+<form class="" action="/gossip/<%=@current_gossip.id%>/comment" method="post">
+  <input type="text" name="content">
+
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="submit" value="poster le commentaire">
+</form>

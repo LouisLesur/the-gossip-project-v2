@@ -1,0 +1,9 @@
+
+<h2>Écrie ton nouveau potin :</h2>
+<form class="" action="/gossip" method="post">
+  <input type="string" name="title" value="">
+  <input type="text" name="content" value="">
+
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="submit" value="créer le potin">
+</form>

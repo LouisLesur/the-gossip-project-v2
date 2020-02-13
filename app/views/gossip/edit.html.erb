@@ -1,0 +1,18 @@
+
+<h3>Je souhaite modifier mon potin</h3>
+<form action="/gossip/<%= @current_gossip.id %>" method="post">
+  Titre :
+  <input type="string" name="title" value="<%= @current_gossip.title %>">
+  Contenu :
+  <input type="text" name="content" value="<%= @current_gossip.content %>">
+  <!-- bouton -->
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="patch">
+  <input type="submit" value="clique pd">
+</form>
+
+<form action="/gossip/<%= @current_gossip.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="supprimez mon potin">
+</form>

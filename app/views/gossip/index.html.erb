@@ -1,0 +1,14 @@
+<h2>Voici tout tes potins :</h2>
+<%= @all_gossip.each do |gossip| %>
+
+  <% if gossip.user_id == current_user.id %>
+
+    <div>
+      <p>
+      <%=gossip.title%>
+      <%=gossip.user.first_name %>
+      <%= link_to"voir le potin", gossip_path(gossip.id), :class => "btn btn-primary"%>
+      </p>
+    </div>
+  <%end%>
+<%end%>

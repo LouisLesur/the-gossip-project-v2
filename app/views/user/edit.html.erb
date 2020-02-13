@@ -1,0 +1,23 @@
+
+<form action="/user/<%= current_user.id %>" method="post">
+  Prénom :
+  <input type="string" name="first_name" value="<%= current_user.first_name %>">
+  Nom :
+  <input type="string" name="last_name" value="<%= current_user.last_name %>">
+  Description :
+  <input type="text" name="description" value="<%= current_user.description %>">
+  Email :
+  <input type="string" name="email" value="<%= current_user.email %>">
+  Age :
+  <input type="integer" name="age" value="<%= current_user.age %>">
+
+  <!-- bouton -->
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="put">
+  <input type="submit" value="clique pd">
+</form>
+<form action="/user/<%= current_user.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="supprimez mon compte">
+</form>
