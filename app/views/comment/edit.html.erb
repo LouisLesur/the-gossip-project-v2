@@ -4,7 +4,7 @@
   <input type="text" name="content" value="<%= @current_comment.content %>">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="hidden" name="_method" value="patch">
-  <input type="submit" value="clique pd">
+  <input type="submit" value="Valider">
 </form>
 
 <form action="/gossip/<%= params[:gossip_id] %>/comment/<%=params[:id]%>" method="post">
